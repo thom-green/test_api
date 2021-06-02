@@ -13,7 +13,6 @@ const newCase = (req, res) => {
             //create a new case object using the Case model and req.body
             const newCase = new Case({
                  name:req.body.name,
-                 image: req.file.path,  //update this
                  description: req.body.description,
                  keywords: req.body.keywords
             })
@@ -106,22 +105,9 @@ const deleteOneCase = (req, res) => {
     });
 };
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads');
-      },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
-});
-
-const uploadImg = multer({storage: storage}).single('image');
-
-
 //export controller functions
 module.exports = {
     getAllCase,
-    uploadImg,  //include the new guy
     newCase,
     deleteAllCase,
     getOneCase,
