@@ -1,3 +1,3 @@
 # test_api
 
-Following this tutorial: https://lo-victoria.com/build-rest-api-with-nodejs-deploy-to-heroku
+https://zoll-api-test.herokuapp.com/case
