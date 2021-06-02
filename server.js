@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require ('express');
 const mongoose = require('mongoose'); //import mongoose
-const routes = require('./routes/tea'); // import the routes
+const routes = require('./routes/case'); // import the routes
 const helmet = require('helmet');
 const compression = require('compression');
 
