@@ -13,7 +13,7 @@
              //create a new case object using the Case model and req.body
              const newCase = new Case({
                   name:req.body.name,
-                  image: req.file.path,  //update this
+                  // image: req.file.path, 
                   description: req.body.description,
                   keywords: req.body.keywords
              })
