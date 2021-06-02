@@ -3,8 +3,6 @@ const mongoose = require("mongoose"); //import mongoose
 // tea schema
 const CaseSchema = new mongoose.Schema({
     name: {type:String, required:true},
-    image: String,
-    description: String,
     keywords: String
 });
 
