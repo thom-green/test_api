@@ -6,16 +6,31 @@
  //POST case
  const newCase = (req, res) => {
      //check if the case name already exists in db
-     Case.findOne({name:req.body.name},(data)=>{
+     Case.findOne({parent_text:req.body.parent_text},(data)=>{
 
          //if case not in db, add it
          if(data===null){
              //create a new case object using the Case model and req.body
              const newCase = new Case({
-                  name:req.body.name,
-                  // image: req.file.path, 
-                  description: req.body.description,
-                  keywords: req.body.keywords
+                 // OLD
+                  // name: req.body.name,
+                  // description: req.body.description,
+                  // keywords: req.body.keywords,
+                  // NEW
+                  date: req.body.date,
+                  fileDate: req.body.fileDate,
+                  zoll_type: req.body.zoll_type,
+                  parent_text: req.body.parent_text,
+                  text: req.body.text,
+                  observations_list_photo: req.body.observations_list_photo,
+                  zoll_serial_number: req.body.zoll_serial_number,
+                  zoll_model: req.body.zoll_model,
+                  zoll_software_version: req.body.zoll_software_version,
+                  zoll_file_name: req.body.zoll_file_name,
+                  displayOrder: req.body.displayOrder,
+                  _foreground: req.body._foreground,
+                  _background: req.body._background,
+                  observations_list_recorded: req.body.observations_list_recorded
              })
 
 
@@ -54,10 +69,10 @@
 
  //GET '/case/:name'
  const getOneCase = (req, res) => {
-     let name = req.params.name; //get the case name
+     let parent_text = req.params.parent_text; //get the parent_text
 
      //find the specific case with that name
-     Case.findOne({name:name}, (err, data) => {
+     Case.findOne({parent_text:parent_text}, (err, data) => {
      if(err || !data) {
          return res.json({message: "Case doesn't exist."});
      }
@@ -65,40 +80,11 @@
      });
  };
 
- //POST 1 case comment
- const newComment = (req, res) => {
-   let name = req.params.name; //get the case to add the comment in
-   let newComment = req.body.comment; //get the comment
-   //create a comment object to push
-   const comment = {
-       text: newComment,
-       date: new Date()
-   }
-   //find the case object
-   Case.findOne({name:name}, (err, data) => {
-       if(err || !data || !newComment) {
-           return res.json({message: "Case doesn't exist."});
-       }
-       else {
-           //add comment to comments array of the case object
-           data.comments.push(comment);
-           //save changes to db
-           data.save(err => {
-               if (err) {
-               return res.json({message: "Comment failed to add.", error:err});
-               }
-               return res.json(data);
-           })
-       }
-   })
- };
-
-
  //DELETE 1 case
  const deleteOneCase = (req, res) => {
-     let name = req.params.name; // get the name of case to delete
+     let parent_text = req.params.parent_text; // get the name of case to delete
 
-     Case.deleteOne({name:name}, (err, data) => {
+     Case.deleteOne({parent_text:parent_text}, (err, data) => {
      if(err || !data) {
          return res.json({message: "Case doesn't exist."});
      }
@@ -121,10 +107,9 @@
  //export controller functions
  module.exports = {
      getAllCase,
-     uploadImg,  //include the new guy
+     uploadImg,
      newCase,
      deleteAllCase,
      getOneCase,
-     newComment,
      deleteOneCase
  };
