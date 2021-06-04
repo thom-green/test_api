@@ -22,15 +22,23 @@
                   zoll_type: req.body.zoll_type,
                   parent_text: req.body.parent_text,
                   text: req.body.text,
+                  observations_list_recorded: req.body.observations_list_recorded,
                   observations_list_photo: req.body.observations_list_photo,
+                  observations_list_spo2: req.body.observations_list_spo2,
+                  observations_list_respiratory_rate: req.body.observations_list_respiratory_rate,
+                  observations_list_blood_pressure_systolic: req.body.observations_list_blood_pressure_systolic,
+                  observations_list_blood_pressure_diastolic: req.body.observations_list_blood_pressure_diastolic,
+                  observations_list_heart_rate_rate: req.body.observations_list_heart_rate_rate,
+                  observations_list_co2_capnography: req.body.observations_list_co2_capnography,
+                  observations_list_temperature: req.body.observations_list_temperature,
+                  treatment_intervention_defibrillation_list_shock: req.body.treatment_intervention_defibrillation_list_shock,
                   zoll_serial_number: req.body.zoll_serial_number,
-                  zoll_model: req.body.zoll_model,
                   zoll_software_version: req.body.zoll_software_version,
                   zoll_file_name: req.body.zoll_file_name,
                   displayOrder: req.body.displayOrder,
+                  list: req.body.list,
                   _foreground: req.body._foreground,
-                  _background: req.body._background,
-                  observations_list_recorded: req.body.observations_list_recorded
+                  _background: req.body._background
              })
 
 
