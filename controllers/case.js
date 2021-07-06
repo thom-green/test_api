@@ -19,8 +19,6 @@
                   // NEW
                   date: req.body.date,
                   fileDate: req.body.fileDate,
-                  device_id: req.body.device_id,
-                  case_id: re.body.case_id,
                   zoll_type: req.body.zoll_type,
                   parent_text: req.body.parent_text,
                   text: req.body.text,

@@ -9,8 +9,6 @@ const CaseSchema = new mongoose.Schema({
     // NEW
     date: String,
     fileDate: String,
-    device_id: String,
-    case_id: String,
     zoll_type: String,
     parent_text: String,
     text: String,
